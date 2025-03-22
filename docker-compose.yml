@@ -1,0 +1,123 @@
+version: "3.8"
+
+services:
+  # Frontend UI service (a single definition)
+  dockling-ui:
+    build:
+      context: .
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost/caller}
+        VITE_API_TIMEOUT: ${VITE_API_TIMEOUT:-5000}
+    image: docklingme/dockling-ui:0.6.2
+    container_name: docklingme-dockling-ui-0.6.2
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - SERVER_NAME=${SERVER_NAME:-dockling-ui}
+    volumes:
+      - ./ssl:/etc/nginx/ssl:ro
+    restart: unless-stopped
+    # depends_on:
+    #   dockling-server:
+    #     condition: service_healthy
+    networks:
+      - dockling-network
+
+  # Backend server service
+  dockling-server:
+    build:
+      context: ${SERVER_DIR:-../dockling-server}
+      dockerfile: Dockerfile
+    image: docklingme/dockling-server:0.6.2
+    container_name: docklingme-dockling-server-0.6.2
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=dockling_db
+      - DB_USER=dockling_user
+      - DB_PASSWORD=dockling_password
+      - CONTEXT_FILE_PATH=/scheduler/pipelines
+    volumes:
+      - pipeline-data:/scheduler/pipelines
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - dockling-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # Scheduler service
+  dockling-scheduler:
+    build:
+      context: ${SCHEDULER_DIR:-../dockling-scheduler}
+      dockerfile: Dockerfile
+    image: docklingme/dockling-scheduler:0.6.2
+    container_name: docklingme-dockling-scheduler-0.6.2
+    ports:
+      - "8089:8089"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=dockling_db
+      - DB_USER=dockling_user
+      - DB_PASSWORD=dockling_password
+      - CONTEXT_FILE_PATH=/scheduler/pipelines
+    volumes:
+      - pipeline-data:/scheduler/pipelines
+      - /Users/yourid/tmp/localfile:/localfile  #change /Users/yourid/tmp/localfile to a path in your machine
+      - /Users/yourid/tmp/fileStorage:/fileStorage  # change /Users/yourid/tmp/fileStorage to a path in your machine
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      # dockling-server:
+      #   condition: service_healthy
+    networks:
+      - dockling-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8089/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  # MySQL Database service
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=dockling_db
+      - MYSQL_USER=dockling_user
+      - MYSQL_PASSWORD=dockling_password
+      - MYSQL_ROOT_PASSWORD=root_password
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - dockling-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u${MYSQL_USER}", "-p${MYSQL_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+networks:
+  dockling-network:
+    name: dockling-network
+    
+volumes:
+  mysql-data:
+  pipeline-data:
