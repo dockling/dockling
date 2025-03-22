@@ -1,16 +1,15 @@
-## Hi there 👋
+# Docking -- Next Generation Enterprise Integration  
 
-<!--
-**dockling/dockling** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Docking focuses on seamless connectivity, leveraging cloud services, APIs, and microservices to enhance agility, scalability, and data-driven decision-making across organizations.  
 
-Here are some ideas to get you started:
+## Try  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+You can try the Docking application by using Docker Compose.  
+
+- **URL:** [http://localhost](http://localhost)  
+- **Login User:** admin@admin.com  
+- **Login Password:** 11111a  
+
+## Quick Start Guide  
+
+To get started, you can download the [docker-compose.yml](path/to/your/docker-compose.yml) file.  
