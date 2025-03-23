@@ -6,7 +6,7 @@ For more infromation, please visit [https://dockling.me]
 
 ## Try  
 
-You can try the Docking application by downloading the [docker-compose.yml](path/to/your/docker-compose.yml) file.  
+You can try the Docking application by downloading the [docker-compose.yml](./docker-compose.yml) file.  
 
 - **URL:** [http://localhost](http://localhost)  
 - **Login User:** admin@admin.com  
