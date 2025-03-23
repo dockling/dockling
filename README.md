@@ -1,12 +1,12 @@
-# Docking -- Next Generation Enterprise Integration  
+# Docking -- Next Generation Enterprise Application Integration (EAI) 
 
-Docking focuses on seamless connectivity, leveraging cloud services, APIs, and microservices to enhance agility, scalability, and data-driven decision-making across organizations. 
+Docking focuses on seamless connectivity, leveraging cloud services, APIs, and microservices to enhance agility, scalability, and data-driven integration across organizations. 
 
 For more infromation, please visit [https://dockling.me]
 
 ## Try  
 
-You can try the Docking application by downloading the [docker-compose.yml](./docker-compose.yml) file.  
+You can try the Docking application by downloading [docker-compose.yml](./docker-compose.yml) file.  
 
 - **URL:** [http://localhost](http://localhost)  
 - **Login User:** admin@admin.com  
