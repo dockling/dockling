@@ -8,8 +8,8 @@ services:
       args:
         VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost/caller}
         VITE_API_TIMEOUT: ${VITE_API_TIMEOUT:-5000}
-    image: docklingme/dockling-ui:0.6.2
-    container_name: docklingme-dockling-ui-0.6.2
+    image: docklingme/dockling-ui:0.7.0
+    container_name: docklingme-dockling-ui-0.7.0
     ports:
       - "80:80"
       - "443:443"
@@ -29,8 +29,8 @@ services:
     build:
       context: ${SERVER_DIR:-../dockling-server}
       dockerfile: Dockerfile
-    image: docklingme/dockling-server:0.6.2
-    container_name: docklingme-dockling-server-0.6.2
+    image: docklingme/dockling-server:0.7.0
+    container_name: docklingme-dockling-server-0.7.0
     ports:
       - "8080:8080"
     environment:
@@ -60,8 +60,8 @@ services:
     build:
       context: ${SCHEDULER_DIR:-../dockling-scheduler}
       dockerfile: Dockerfile
-    image: docklingme/dockling-scheduler:0.6.2
-    container_name: docklingme-dockling-scheduler-0.6.2
+    image: docklingme/dockling-scheduler:0.7.0
+    container_name: docklingme-dockling-scheduler-0.7.0
     ports:
       - "8089:8089"
     environment:
