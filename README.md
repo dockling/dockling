@@ -19,4 +19,7 @@ You can try the Docking application by downloading the [docker-compose.yml](path
 ![Dashboard](dashboard.jpg)  
 
 ### Pipeline page
-![Pipeline](pipeline.jpg)  
+![Pipeline](pipeline.jpg) 
+
+### Adapters/Plugin page
+![Pipeline](adapters.jpg)
