@@ -1,6 +1,8 @@
 # Docking -- Next Generation Enterprise Integration  
 
-Docking focuses on seamless connectivity, leveraging cloud services, APIs, and microservices to enhance agility, scalability, and data-driven decision-making across organizations.  
+Docking focuses on seamless connectivity, leveraging cloud services, APIs, and microservices to enhance agility, scalability, and data-driven decision-making across organizations. 
+
+For more infromation, please visit [https://dockling.me]
 
 ## Try  
 
