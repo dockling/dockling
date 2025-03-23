@@ -4,12 +4,13 @@ Docking focuses on seamless connectivity, leveraging cloud services, APIs, and m
 
 ## Try  
 
-You can try the Docking application by using Docker Compose.  
+You can try the Docking application by downloading the [docker-compose.yml](path/to/your/docker-compose.yml) file.  
 
 - **URL:** [http://localhost](http://localhost)  
 - **Login User:** admin@admin.com  
-- **Login Password:** 11111a  
+- **Login Password:** 111111a  
 
-## Quick Start Guide  
-
-To get started, you can download the [docker-compose.yml](path/to/your/docker-compose.yml) file.  
+## Docking is plugin based application
+- **Plugin information:** [https://www.dockling.me/#features-section]
+- **Plugin Hub:** [https://hub.dockling.me]
+ 
