@@ -13,4 +13,13 @@ You can try the Docking application by downloading the [docker-compose.yml](path
 ## Docking is plugin based application
 - **Plugin information:** [https://www.dockling.me/#features-section]
 - **Plugin Hub:** [https://hub.dockling.me]
- 
+
+## Docking page overviw
+### login page
+![Login](login.jpg)  
+
+### Dashboard page
+![Dashboard](dashboard.jpg)  
+
+### Pipeline page
+![Pipeline](pipeline.jpg)  
