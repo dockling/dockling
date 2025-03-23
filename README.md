@@ -24,4 +24,4 @@ You can try the Docking application by downloading the [docker-compose.yml](./do
 ![Pipeline](pipeline.jpg) 
 
 ### Adapters/Plugin page
-![Pipeline](adapters.jpg)
+![Adapter](adapters.jpg)
